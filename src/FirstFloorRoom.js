@@ -1,7 +1,7 @@
 import React from 'react';
 
 let FirstFloorRoom = (props) => {
-    if (props.firstFloorVisibility === false) {
+    if (!props.firstFloorVisibility) {
         return null;
     } else {
         return (

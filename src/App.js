@@ -7,7 +7,7 @@ import AtticRoom from './AtticRoom';
 
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       basementVisibility: false,
@@ -18,22 +18,22 @@ class App extends Component {
   }
   render() {
     return (
-    <div>
-       <h1>Home Organizer</h1>
-       
-       <select>
-            <option value="0"> Basement </option>
-            <option value="1"> First </option>
-            <option value="2"> Second </option>
-            <option value="3"> Attic </option>
+      <div>
+        <h1>Home Organizer</h1>
+
+        <select id="floor">
+          <option value="0"> Basement </option>
+          <option value="1"> First </option>
+          <option value="2"> Second </option>
+          <option value="3"> Attic </option>
         </select>
 
-       <BasementRoom visibility={this.state.basementVisibility}/>
-       <FirstFloorRoom visibility={this.state.firstFloorVisibility}/>
-       <SecondFloorRoom visibility={this.state.secondFloorVisibility}/>
-       <AtticRoom visibility={this.state.atticRoomVisibility}/>
-       
-    </div>
+        <BasementRoom visibility={this.state.basementVisibility} />
+        <FirstFloorRoom visibility={this.state.firstFloorVisibility} />
+        <SecondFloorRoom visibility={this.state.secondFloorVisibility} />
+        <AtticRoom visibility={this.state.atticRoomVisibility} />
+
+      </div>
     );
   }
 }

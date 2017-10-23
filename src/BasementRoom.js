@@ -1,7 +1,7 @@
 import React from 'react';
 
 let BasementRoom = (props) => {
-    if (props.basementVisibility === false) {
+    if (!props.basementVisibility) {
         return null;
     } else {
         return (

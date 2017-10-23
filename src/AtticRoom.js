@@ -1,7 +1,7 @@
 import React from 'react';
 
 let AtticRoom = (props) => {
-    if (props.atticRoomVisibility === false) {
+    if (!props.atticRoomVisibility) {
         return null;
     } else {
         return (
