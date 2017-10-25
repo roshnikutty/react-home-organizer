@@ -1,11 +1,11 @@
 import React from 'react';
 
 let FirstFloorRoom = (props) => {
-    if (!props.firstFloorVisibility) {
+    if (!props.visibility) {
         return null;
     } else {
         return (
-            <select visibility={props.firstFloorVisibility}>
+            <select id="first" visible={`${props.visibility}`}>
                 <option value="kitchen"> Kitchen </option>
                 <option value="living"> Living Room </option>
                 <option value="dining"> Dining Room </option>

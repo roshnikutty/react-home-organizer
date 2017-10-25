@@ -1,11 +1,11 @@
 import React from 'react';
 
 let AtticRoom = (props) => {
-    if (!props.atticRoomVisibility) {
+    if (!props.visibility) {
         return null;
     } else {
         return (
-            <select visibility={props.atticRoomVisibility}>
+            <select id="attic" visibile={`${props.visibility}`}>
                 <option value="attic_store"> Attic Storage </option>
             </select>
         );
