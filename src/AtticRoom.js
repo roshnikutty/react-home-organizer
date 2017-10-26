@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 let AtticRoom = (props) => {
     if (!props.visibility) {
@@ -11,4 +12,8 @@ let AtticRoom = (props) => {
         );
     }
 }
-export default AtticRoom;
+
+const mapStateToProps = state => ({
+    visibility: state.atticRoomVisibility
+});
+export default connect(mapStateToProps)(AtticRoom);

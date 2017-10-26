@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 let FirstFloorRoom = (props) => {
     if (!props.visibility) {
@@ -16,4 +17,7 @@ let FirstFloorRoom = (props) => {
         );
     }
 }
-export default FirstFloorRoom;
+const mapStateToProps = state => ({
+    visibility: state.firstFloorVisibility
+});
+export default connect(mapStateToProps)(FirstFloorRoom);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 let BasementRoom = (props) => {
     if (!props.visibility) {
@@ -14,4 +15,7 @@ let BasementRoom = (props) => {
         );
     }
 }
-export default BasementRoom;
+const mapStateToProps = state => ({
+    visibility: state.basementVisibility
+});
+export default connect(mapStateToProps)(BasementRoom);
