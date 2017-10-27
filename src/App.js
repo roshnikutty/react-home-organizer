@@ -5,17 +5,44 @@ import BasementRoom from './BasementRoom';
 import FirstFloorRoom from './FirstFloorRoom';
 import SecondFloorRoom from './SecondFloorRoom';
 import AtticRoom from './AtticRoom';
-import { Floor } from './actions/actions';
+import { Floor, Basement, First_floor, Second_floor, Attic } from './actions/actions';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.handleBasementChange = this.handleBasementChange.bind(this);
+    this.handleFirstFloorChange = this.handleFirstFloorChange.bind(this);
+    this.handleSecondFloorChange = this.handleSecondFloorChange.bind(this);
+    this.handleAtticChange = this.handleAtticChange.bind(this);
   }
   handleChange(e) {
     e.preventDefault();
-    let floor_type = document.getElementById("floor").value;
+    // let floor_type = document.getElementById("floor").value;
+    let floor_type = e.target.value;
     this.props.dispatch(Floor(floor_type));                 //dispatch from the store is passed as a prop
+  }
+  handleBasementChange(e) {
+    e.preventDefault();
+    let room_type = e.target.value;
+    this.props.dispatch(Basement(room_type));
+  }
+  handleFirstFloorChange(e) {
+    e.preventDefault();
+    let room_type = e.target.value;
+    this.props.dispatch(First_floor(room_type));
+  }
+
+  handleSecondFloorChange(e) {
+    e.preventDefault();
+    let room_type = e.target.value;
+    this.props.dispatch(Second_floor(room_type));
+  }
+
+  handleAtticChange(e) {
+    e.preventDefault();
+    let room_type = e.target.value;
+    this.props.dispatch(Attic(room_type));
   }
 
   render() {
@@ -31,10 +58,10 @@ class App extends Component {
           <option value="Attic"> Attic </option>
         </select>
 
-        <BasementRoom visibility={this.props.basementVisibility} />
-        <FirstFloorRoom visibility={this.props.firstFloorVisibility} />
-        <SecondFloorRoom visibility={this.props.secondFloorVisibility} />
-        <AtticRoom visibility={this.props.atticRoomVisibility} />
+        <BasementRoom visibility={this.props.basementVisibility} basementChange={this.handleBasementChange} />
+        <FirstFloorRoom visibility={this.props.firstFloorVisibility} firstFloorChange={this.handleFirstFloorChange} />
+        <SecondFloorRoom visibility={this.props.secondFloorVisibility} secondFloorChange={this.handleSecondFloorChange} />
+        <AtticRoom visibility={this.props.atticRoomVisibility} atticChange={this.handleAtticChange} />
 
       </div>
     );

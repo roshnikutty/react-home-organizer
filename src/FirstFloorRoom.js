@@ -6,7 +6,7 @@ let FirstFloorRoom = (props) => {
         return null;
     } else {
         return (
-            <select id="first" visible={`${props.visibility}`}>
+            <select id="first" visible={`${props.visibility}`} onChange={props.firstFloorChange}>
                 <option value="kitchen"> Kitchen </option>
                 <option value="living"> Living Room </option>
                 <option value="dining"> Dining Room </option>

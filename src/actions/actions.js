@@ -12,19 +12,19 @@ export const Basement = (room) => ({
 });
 
 export const FIRST_FLOOR = "FIRST_FLOOR";
-export const first_floor = (room) => ({
+export const First_floor = (room) => ({
     type: "FIRST_FLOOR",
     payload: room
 });
 
 export const SECOND_FLOOR = "SECOND_FLOOR";
-export const second_floor = (room) => ({
+export const Second_floor = (room) => ({
     type: "SECOND_FLOOR",
     payload: room
 });
 
 export const ATTIC = "ATTIC";
-export const attic = (room) => ({
+export const Attic = (room) => ({
     type: "ATTIC",
     payload: room
 });

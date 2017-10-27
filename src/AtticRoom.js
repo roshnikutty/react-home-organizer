@@ -6,7 +6,7 @@ let AtticRoom = (props) => {
         return null;
     } else {
         return (
-            <select id="attic" visibile={`${props.visibility}`}>
+            <select id="attic" visibile={`${props.visibility}`} onChange={props.atticChange}>
                 <option value="attic_store"> Attic Storage </option>
             </select>
         );

@@ -6,7 +6,7 @@ let SecondFloorRoom = (props) => {
         return null;
     } else {
         return (
-            <select id="second" visibile={`${props.visibility}`}>
+            <select id="second" visibile={`${props.visibility}`} onChange={props.secondFloorChange}>
                 <option value="bedroom1"> Nursery </option>
                 <option value="bedroom2"> Kid's room </option>
                 <option value="bedroom3"> Master bedroom </option>
