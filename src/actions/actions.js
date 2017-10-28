@@ -28,3 +28,9 @@ export const Attic = (room) => ({
     type: "ATTIC",
     payload: room
 });
+
+export const PLACE = "PLACE";
+export const Place_Action = (place_value) =>({
+    type: "PLACE",
+    payload: place_value
+})

@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 let BasementRoom = (props) => {
-    // let room_type = document.getElementById("basement").value;
-    // console.log(room_type);
 
     if (!props.visibility) {
         return null;

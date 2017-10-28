@@ -5,7 +5,8 @@ import BasementRoom from './BasementRoom';
 import FirstFloorRoom from './FirstFloorRoom';
 import SecondFloorRoom from './SecondFloorRoom';
 import AtticRoom from './AtticRoom';
-import { Floor, Basement, First_floor, Second_floor, Attic } from './actions/actions';
+import Place from './Place';
+import { Floor, Basement, First_floor, Second_floor, Attic, Place_Action } from './actions/actions';
 
 class App extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class App extends Component {
     this.handleFirstFloorChange = this.handleFirstFloorChange.bind(this);
     this.handleSecondFloorChange = this.handleSecondFloorChange.bind(this);
     this.handleAtticChange = this.handleAtticChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
   handleChange(e) {
     e.preventDefault();
@@ -45,6 +47,11 @@ class App extends Component {
     this.props.dispatch(Attic(room_type));
   }
 
+  handleInputChange(e) {
+    e.preventDefault();
+    let placeValue = e.target.value;
+    this.props.dispatch(Place_Action(placeValue));
+  }
   render() {
     return (
       <div>
@@ -62,16 +69,17 @@ class App extends Component {
         <FirstFloorRoom visibility={this.props.firstFloorVisibility} firstFloorChange={this.handleFirstFloorChange} />
         <SecondFloorRoom visibility={this.props.secondFloorVisibility} secondFloorChange={this.handleSecondFloorChange} />
         <AtticRoom visibility={this.props.atticRoomVisibility} atticChange={this.handleAtticChange} />
-
+        <Place visibility={this.props.placeVisibility} onChange={this.handleInputChange} />
       </div>
     );
   }
 }
-const mapStateToProps = state => ({
-  basementVisibility: state.basementVisibility,
-  firstFloorVisibility: state.firstFloorVisibility,
-  secondFloorVisibility: state.secondFloorVisibility,
-  atticRoomVisibility: state.atticRoomVisibility
-});
+// const mapStateToProps = state => ({
+//   basementVisibility: state.basementVisibility,
+//   firstFloorVisibility: state.firstFloorVisibility,
+//   secondFloorVisibility: state.secondFloorVisibility,
+//   atticRoomVisibility: state.atticRoomVisibility,
+//   placeVisibility: state.placeVisibility
+// });
 
-export default connect(mapStateToProps)(App);
+export default connect()(App);
