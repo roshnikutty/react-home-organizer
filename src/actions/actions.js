@@ -34,3 +34,9 @@ export const Place_Action = (place_value) =>({
     type: "PLACE",
     payload: place_value
 })
+
+export const ADD_ITEM = "ADD_ITEM";
+export const Add_Item_to_state = (stuff_to_add) =>({
+    type: "ADD_ITEM",
+    payload: stuff_to_add
+})

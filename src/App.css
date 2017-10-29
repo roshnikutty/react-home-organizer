@@ -6,7 +6,7 @@ body {
     margin: 100px;
 }
 
-select {
+select, input {
     display: block;
     margin-bottom: 15px;
 }

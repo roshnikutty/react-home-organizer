@@ -2,19 +2,20 @@
 const initialState = {
     floor_type_state: '',
     room_type_state: '',
+    place: '',
+    item: '',
     basementVisibility: false,
     firstFloorVisibility: false,
     secondFloorVisibility: false,
     atticRoomVisibility: false,
-    placeVisibility: false
+    placeVisibility: false,
+    itemVisibility: false
 };
 
 
 export const homeOrgReducer = (state = initialState, action) => {
-    // var floorType;
     if (action.type === "FLOOR") {
-        //action.payload should give floor_type
-        // floorType = action.payload.toUpperCase();
+        // reducer function conditions for floor types
         if (action.payload === "Basement") {
             return Object.assign({}, state, {
                 floor_type_state: "Basement",
@@ -51,70 +52,92 @@ export const homeOrgReducer = (state = initialState, action) => {
                 atticRoomVisibility: true
             })
         }
-        if (action.type === "PLACE") {
-            return Object.assign({}, state, {
-                placeVisibility: true
-            })
-        }
-        return state;
     }
+    else if (action.type === "PLACE") {
+        return Object.assign({}, state, {
+            place: action.payload
+        })
+    }
+    else if (action.type === "ADD_ITEM") {
+        return Object.assign({}, state, {
+            item: action.payload
+        })
+    }
+
+
+    // reducer function conditions for room types
     switch (action.payload) {
         case "study": return Object.assign({}, state, {
             room_type_state: "study",
-            placeVisibility: true
+            placeVisibility: true,
+            itemVisibility: true
         })
         case "office": return Object.assign({}, state, {
             room_type_state: "office",
-            placeVisibility: true
+            placeVisibility: true,
+            itemVisibility: true
         })
         case "laundry": return Object.assign({}, state, {
             room_type_state: "laundry",
-            placeVisibility: true
+            placeVisibility: true,
+            itemVisibility: true
         })
         case "store": return Object.assign({}, state, {
             room_type_state: "store",
-            placeVisibility: true
+            placeVisibility: true,
+            itemVisibility: true
         })
         case "kitchen": return Object.assign({}, state, {
             room_type_state: "kitchen",
-            placeVisibility: true
+            placeVisibility: true,
+            itemVisibility: true
         })
         case "living": return Object.assign({}, state, {
             room_type_state: "living",
-            placeVisibility: true
+            placeVisibility: true,
+            itemVisibility: true
         })
         case "dining": return Object.assign({}, state, {
             room_type_state: "dining",
-            placeVisibility: true
+            placeVisibility: true,
+            itemVisibility: true
         })
         case "sunroom": return Object.assign({}, state, {
             room_type_state: "sunroom",
-            placeVisibility: true
+            placeVisibility: true,
+            itemVisibility: true
         })
         case "mudroom": return Object.assign({}, state, {
             room_type_state: "mudroom",
-            placeVisibility: true
+            placeVisibility: true,
+            itemVisibility: true
         })
         case "garage": return Object.assign({}, state, {
             room_type_state: "garage",
-            placeVisibility: true
+            placeVisibility: true,
+            itemVisibility: true
         })
         case "bedroom1": return Object.assign({}, state, {
             room_type_state: "bedroom1",
-            placeVisibility: true
+            placeVisibility: true,
+            itemVisibility: true
         })
         case "bedroom2": return Object.assign({}, state, {
             room_type_state: "bedroom2",
-            placeVisibility: true
+            placeVisibility: true,
+            itemVisibility: true
         })
         case "bedroom3": return Object.assign({}, state, {
             room_type_state: "bedroom3",
-            placeVisibility: true
+            placeVisibility: true,
+            itemVisibility: true
         })
         case "attic_store": return Object.assign({}, state, {
             room_type_state: "attic_store",
-            placeVisibility: true
+            placeVisibility: true,
+            itemVisibility: true
         })
         default: return state;
     }
+
 }
