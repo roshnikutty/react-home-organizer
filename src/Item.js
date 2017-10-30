@@ -8,7 +8,7 @@ let Item = (props) => {
         return (<div>
             <input type="text" size="50" visibility={`${props.visibility}`} placeholder="Enter item" 
             onChange={props.onChange} />
-            <button onSubmit={props.onSubmit}> Add Item </button>
+            <button onClick={props.onClick}> Add Item </button>
         </div>
         )
     }

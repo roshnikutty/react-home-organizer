@@ -7,11 +7,12 @@ import SecondFloorRoom from './SecondFloorRoom';
 import AtticRoom from './AtticRoom';
 import Place from './Place';
 import Item from './Item';
-import { Floor, Basement, First_floor, Second_floor, Attic, Place_Action, Add_Item_to_state } from './actions/actions';
+import { Floor, Basement, First_floor, Second_floor, Attic, 
+          Place_Action, Add_Item_to_state, AddAndShow } from './actions/actions';
 
 class App extends Component {
   constructor(props) {
-  // var inputValues = {};
+    // var inputValues = {};
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleBasementChange = this.handleBasementChange.bind(this);
@@ -32,53 +33,38 @@ class App extends Component {
     e.preventDefault();
     let room_type = e.target.value;
     this.props.dispatch(Basement(room_type));
-    return room_type;
   }
   handleFirstFloorChange(e) {
     e.preventDefault();
     let room_type = e.target.value;
     this.props.dispatch(First_floor(room_type));
-    return room_type;
   }
 
   handleSecondFloorChange(e) {
     e.preventDefault();
     let room_type = e.target.value;
     this.props.dispatch(Second_floor(room_type));
-    return room_type;
   }
 
   handleAtticChange(e) {
     e.preventDefault();
     let room_type = e.target.value;
     this.props.dispatch(Attic(room_type));
-    return room_type;
   }
 
   handleInputChange(e) {
     e.preventDefault();
     let placeValue = e.target.value;
     this.props.dispatch(Place_Action(placeValue));
-    return placeValue;
-
   }
   handleItemChange(e) {
     e.preventDefault();
     let itemValue = e.target.value;
     this.props.dispatch(Add_Item_to_state(itemValue));
-    return itemValue;
   }
   handleButtonSubmit(e) {
     e.preventDefault();
-    let stateValues = {};
-    console.log(this.props);
-    console.log(`hi`);
-    stateValues.floor_type_state = this.props.floor_type_state;
-    stateValues.room_type_state = this.props.room_type_state;
-    stateValues.place = this.props.place;
-    stateValues.item = this.props.item;
-    // this.props.dispatch(AddAndShow(stateValues))
-    console.log(stateValues);    
+    this.props.dispatch(AddAndShow())
   }
   render() {
     return (
@@ -98,8 +84,8 @@ class App extends Component {
         <SecondFloorRoom visibility={this.props.secondFloorVisibility} secondFloorChange={this.handleSecondFloorChange} />
         <AtticRoom visibility={this.props.atticRoomVisibility} atticChange={this.handleAtticChange} />
         <Place visibility={this.props.placeVisibility} onChange={this.handleInputChange} />
-        <Item visibility={this.props.itemVisibility} onChange={this.handleItemChange} 
-        onSubmit={this.props.handleButtonSubmit}/>
+        <Item visibility={this.props.itemVisibility} onChange={this.handleItemChange}
+          onClick={this.handleButtonSubmit} />
       </div>
     );
   }

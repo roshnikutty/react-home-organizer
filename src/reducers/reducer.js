@@ -63,6 +63,10 @@ export const homeOrgReducer = (state = initialState, action) => {
             item: action.payload
         })
     }
+    else if (action.type === "ADD_AND_SHOW"){
+        console.log(state);
+        return state;
+    }
 
 
     // reducer function conditions for room types
