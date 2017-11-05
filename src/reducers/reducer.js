@@ -64,9 +64,9 @@ export const homeOrgReducer = (state = initialState, action) => {
             item: action.payload
         })
     }
-    else if (action.type === "SHOW") {
-        return state;
-    }
+    // else if (action.type === "SHOW") {
+    //     return state;
+    // }
 
 
     // reducer function conditions for room types
@@ -146,6 +146,8 @@ export const homeOrgReducer = (state = initialState, action) => {
 
 }
 
+
+//get all the previous (...state) and the latest(latest is action.payload) displayed
 export const homeOrgArrayReducer = (state = [], action) => {
     switch (action.type) {
         case SHOW:

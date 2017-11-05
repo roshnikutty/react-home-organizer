@@ -14,8 +14,4 @@ let Item = (props) => {
     }
 }
 
-// const mapStateToProps = state => ({
-//     visibility: state.itemVisibility
-// });
-
 export default connect()(Item);

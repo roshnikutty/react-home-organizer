@@ -66,11 +66,11 @@ class App extends Component {
   }
   handleButtonSubmit(e) {
     e.preventDefault();
-    console.log("from inside function")
     this.props.dispatch(Show(this.props.homeOrg))
   }
   render() {
     const homeOrg = this.props.homeOrg;
+    console.log("App.js line 74 " +JSON.stringify(homeOrg));
     return (
       <div>
         <h1>Home Organizer</h1>

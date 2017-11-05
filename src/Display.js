@@ -1,21 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Show } from './actions/actions';
+// import { Show } from './actions/actions';
 
 let Display = (props) => {
-    // let output = props.dispatch(Show());          //output will be current state
-    //     console.log(output);
     let output = props.output;
 
-    if ((Object.values(output)).length === 0) {
+    if (output.length === 0) {
         return (
             <div>
                 <p>There are no items to show.</p>
                 <p> Add stuff yo! </p>
             </div>);
     } else {
-        let listDisplay = Object.keys(output).map(function (item_data) {
-            return( <li key={Date.now()}>
+        let listDisplay = output.map(function (item_data, index) {
+            return( <li key={index}>
                 <div>
                     <strong>Floor </strong> {item_data.floor_type_state} <br/>
                     <strong>Room </strong> {item_data.room_type_state} <br/>
@@ -24,7 +22,7 @@ let Display = (props) => {
                 </div>
             </li>)
         });
-        let outputDisplay = <ul>${listDisplay}</ul>;
+        let outputDisplay = <ul>{listDisplay}</ul>;
         return (
             <div>
                 <p>Here's the list of stuff you added.</p>
