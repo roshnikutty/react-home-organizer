@@ -70,7 +70,6 @@ class App extends Component {
   }
   render() {
     const homeOrg = this.props.homeOrg;
-    console.log("App.js line 74 " +JSON.stringify(homeOrg));
     return (
       <div>
         <h1>Home Organizer</h1>

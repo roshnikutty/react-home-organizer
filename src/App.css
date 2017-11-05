@@ -10,3 +10,18 @@ select, input {
     display: block;
     margin-bottom: 15px;
 }
+li {
+    list-style: none;
+}
+.card {
+    margin-top: 15px;
+    background-color: #d0e3f9;
+    border-radius: 5px;
+    padding: 7px;
+    color: #3d5169;
+    width: 300px;
+}
+
+strong {
+    margin-right: 15px;
+}

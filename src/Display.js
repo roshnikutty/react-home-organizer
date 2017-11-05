@@ -13,7 +13,7 @@ let Display = (props) => {
             </div>);
     } else {
         let listDisplay = output.map(function (item_data, index) {
-            return( <li key={index}>
+            return( <li key={index} className="card">
                 <div>
                     <strong>Floor </strong> {item_data.floor_type_state} <br/>
                     <strong>Room </strong> {item_data.room_type_state} <br/>
