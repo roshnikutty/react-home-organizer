@@ -41,7 +41,13 @@ export const Add_Item_to_state = (stuff_to_add) =>({
     payload: stuff_to_add
 })
 
-export const ADD_AND_SHOW = "ADD_AND_SHOW";
-export const AddAndShow = () => ({
-    type: ADD_AND_SHOW
+// export const ADD_AND_SHOW = "ADD_AND_SHOW";
+// export const AddAndShow = () => ({
+//     type: ADD_AND_SHOW
+// })
+
+export const SHOW = "SHOW";
+export const Show = (homeOrg) => ({
+    type: SHOW,
+    payload: homeOrg
 })

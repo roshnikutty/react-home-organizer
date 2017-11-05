@@ -12,8 +12,8 @@ let Place = (props) => {
     }
 }
 
-const mapStateToProps = (state) => ({
-    visibility: state.placeVisibility
-});
+// const mapStateToProps = (state) => ({
+//     visibility: state.placeVisibility
+// });
 
-export default connect(mapStateToProps)(Place);
+export default connect()(Place);

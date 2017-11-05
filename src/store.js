@@ -1,5 +1,7 @@
-import {createStore} from 'redux';
+import {createStore, combineReducers} from 'redux';
 
-import {homeOrgReducer} from './reducers/reducer';
+import {homeOrgReducer, homeOrgArrayReducer} from './reducers/reducer';
 
-export default createStore(homeOrgReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+let reducer = combineReducers({homeOrgReducer, homeOrgArrayReducer});
+
+export default createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

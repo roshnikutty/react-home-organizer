@@ -1,3 +1,4 @@
+import {SHOW} from '../actions/actions';
 
 const initialState = {
     floor_type_state: '',
@@ -63,8 +64,7 @@ export const homeOrgReducer = (state = initialState, action) => {
             item: action.payload
         })
     }
-    else if (action.type === "ADD_AND_SHOW"){
-        console.log(state);
+    else if (action.type === "SHOW") {
         return state;
     }
 
@@ -141,6 +141,15 @@ export const homeOrgReducer = (state = initialState, action) => {
             placeVisibility: true,
             itemVisibility: true
         })
+        default: return state;
+    }
+
+}
+
+export const homeOrgArrayReducer = (state = [], action) => {
+    switch (action.type) {
+        case SHOW:
+            return [...state, action.payload];
         default: return state;
     }
 

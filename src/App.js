@@ -7,8 +7,11 @@ import SecondFloorRoom from './SecondFloorRoom';
 import AtticRoom from './AtticRoom';
 import Place from './Place';
 import Item from './Item';
-import { Floor, Basement, First_floor, Second_floor, Attic, 
-          Place_Action, Add_Item_to_state, AddAndShow } from './actions/actions';
+import Display from './Display';
+import {
+  Floor, Basement, First_floor, Second_floor, Attic,
+  Place_Action, Add_Item_to_state, Show
+} from './actions/actions';
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +24,6 @@ class App extends Component {
     this.handleAtticChange = this.handleAtticChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleItemChange = this.handleItemChange.bind(this);
-    this.handleButtonSubmit = this.handleButtonSubmit.bind(this);
   }
   handleChange(e) {
     e.preventDefault();
@@ -64,9 +66,11 @@ class App extends Component {
   }
   handleButtonSubmit(e) {
     e.preventDefault();
-    this.props.dispatch(AddAndShow())
+    console.log("from inside function")
+    this.props.dispatch(Show(this.props.homeOrg))
   }
   render() {
+    const homeOrg = this.props.homeOrg;
     return (
       <div>
         <h1>Home Organizer</h1>
@@ -79,16 +83,19 @@ class App extends Component {
           <option value="Attic"> Attic </option>
         </select>
 
-        <BasementRoom visibility={this.props.basementVisibility} basementChange={this.handleBasementChange} />
-        <FirstFloorRoom visibility={this.props.firstFloorVisibility} firstFloorChange={this.handleFirstFloorChange} />
-        <SecondFloorRoom visibility={this.props.secondFloorVisibility} secondFloorChange={this.handleSecondFloorChange} />
-        <AtticRoom visibility={this.props.atticRoomVisibility} atticChange={this.handleAtticChange} />
-        <Place visibility={this.props.placeVisibility} onChange={this.handleInputChange} />
-        <Item visibility={this.props.itemVisibility} onChange={this.handleItemChange}
-          onClick={this.handleButtonSubmit} />
+        <BasementRoom visibility={homeOrg.basementVisibility} basementChange={this.handleBasementChange} />
+        <FirstFloorRoom visibility={homeOrg.firstFloorVisibility} firstFloorChange={this.handleFirstFloorChange} />
+        <SecondFloorRoom visibility={homeOrg.secondFloorVisibility} secondFloorChange={this.handleSecondFloorChange} />
+        <AtticRoom visibility={homeOrg.atticRoomVisibility} atticChange={this.handleAtticChange} />
+        <Place visibility={homeOrg.placeVisibility} onChange={this.handleInputChange} />
+        <Item visibility={homeOrg.itemVisibility} onChange={this.handleItemChange}
+          onClick={(e) => this.handleButtonSubmit(e)} />
+        <Display />
       </div>
     );
   }
 }
-
-export default connect()(App);
+const mapStateToProps = state => ({
+    homeOrg: state.homeOrgReducer
+});
+export default connect(mapStateToProps)(App);

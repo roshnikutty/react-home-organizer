@@ -17,7 +17,7 @@ let FirstFloorRoom = (props) => {
         );
     }
 }
-const mapStateToProps = state => ({
-    visibility: state.firstFloorVisibility
-});
-export default connect(mapStateToProps)(FirstFloorRoom);
+// const mapStateToProps = state => ({
+//     visibility: state.firstFloorVisibility
+// });
+export default connect()(FirstFloorRoom);
