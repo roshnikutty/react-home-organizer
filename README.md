@@ -1,3 +1,16 @@
+# Purpose of this Application
+
+Create a tracker that lets you organize and document where things are kept in the house:
+
+1. It should let you add item, place to a selected floor and room. (working)
+2. It should let you delete an item. (* in works)
+3. It should let you search for an item. (next up feature to add)
+
+
+
+
+
+================================================================================================================
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
