@@ -75,28 +75,26 @@ class App extends Component {
   }
   render() {
     const homeOrg = this.props.homeOrg;
-    return (
-      <div>
-        <h1>Home Organizer</h1>
+    return [
+        <h1 key= "A" >Home Organizer</h1>,
 
-        <select id="floor" onChange={this.handleChange}>
+        <select key= "B" id="floor" onChange={this.handleChange}>
           <option value="na"> Select floor </option>
           <option value="Basement"> Basement </option>
           <option value="First"> First </option>
           <option value="Second"> Second </option>
           <option value="Attic"> Attic </option>
-        </select>
+        </select>,
 
-        <BasementRoom visibility={homeOrg.basementVisibility} basementChange={this.handleBasementChange} />
-        <FirstFloorRoom visibility={homeOrg.firstFloorVisibility} firstFloorChange={this.handleFirstFloorChange} />
-        <SecondFloorRoom visibility={homeOrg.secondFloorVisibility} secondFloorChange={this.handleSecondFloorChange} />
-        <AtticRoom visibility={homeOrg.atticRoomVisibility} atticChange={this.handleAtticChange} />
-        <Place visibility={homeOrg.placeVisibility} onChange={this.handleInputChange} />
-        <Item visibility={homeOrg.itemVisibility} onChange={this.handleItemChange}
-          onClick={(e) => this.handleButtonSubmit(e)} />
-        <Display onClick={(e, index) => this.handleDeleteItem(e, index)} />
-      </div>
-    );
+        <BasementRoom key= "C" visibility={homeOrg.basementVisibility} basementChange={this.handleBasementChange} />,
+        <FirstFloorRoom key= "D" visibility={homeOrg.firstFloorVisibility} firstFloorChange={this.handleFirstFloorChange} />,
+        <SecondFloorRoom key= "E" visibility={homeOrg.secondFloorVisibility} secondFloorChange={this.handleSecondFloorChange} />,
+        <AtticRoom key= "F" visibility={homeOrg.atticRoomVisibility} atticChange={this.handleAtticChange} />,
+        <Place key= "G" visibility={homeOrg.placeVisibility} onChange={this.handleInputChange} />,
+        <Item key= "H" visibility={homeOrg.itemVisibility} onChange={this.handleItemChange}
+          onClick={(e) => this.handleButtonSubmit(e)} />,
+        <Display key= "I" onClick={(e, index) => this.handleDeleteItem(e, index)} />
+      ];
   }
 }
 const mapStateToProps = state => ({
