@@ -151,7 +151,6 @@ export const homeOrgArrayReducer = (state = [], action) => {
             return [...state, action.payload];
         case DELETE:
             let index = action.payload;
-            console.log("DELETE in action");
             state = [].concat(state.slice(0, index), state.slice(index + 1));
             return state;
         default: return state;

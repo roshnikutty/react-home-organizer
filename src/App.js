@@ -71,7 +71,6 @@ class App extends Component {
   }
   handleDeleteItem(e, indexOfItemToDelete) {
     e.preventDefault();
-    console.log(indexOfItemToDelete);
     this.props.dispatch(Delete(indexOfItemToDelete));
   }
   render() {
