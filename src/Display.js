@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { Show } from './actions/actions';
 
 let Display = (props) => {
     let output = props.output;
@@ -13,12 +12,13 @@ let Display = (props) => {
             </div>);
     } else {
         let listDisplay = output.map(function (item_data, index) {
-            return( <li key={index} className="card">
+            return (<li key={index} className="card">
                 <div>
-                    <strong>Floor </strong> {item_data.floor_type_state} <br/>
-                    <strong>Room </strong> {item_data.room_type_state} <br/>
-                    <strong>Place </strong> {item_data.place} <br/>
-                    <strong>Item </strong> {item_data.item} <br/>
+                    <strong>Floor </strong> {item_data.floor_type_state} <br />
+                    <strong>Room </strong> {item_data.room_type_state} <br />
+                    <strong>Place </strong> {item_data.place} <br />
+                    <strong>Item </strong> {item_data.item} <br />
+                    <button onClick={props.onClick(index)}> Delete </button>
                 </div>
             </li>)
         });

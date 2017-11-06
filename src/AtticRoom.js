@@ -13,7 +13,4 @@ let AtticRoom = (props) => {
     }
 }
 
-// const mapStateToProps = state => ({
-//     visibility: state.atticRoomVisibility
-// });
 export default connect()(AtticRoom);

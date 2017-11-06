@@ -10,7 +10,7 @@ import Item from './Item';
 import Display from './Display';
 import {
   Floor, Basement, First_floor, Second_floor, Attic,
-  Place_Action, Add_Item_to_state, Show
+  Place_Action, Add_Item_to_state, Show, Delete
 } from './actions/actions';
 
 class App extends Component {
@@ -24,6 +24,7 @@ class App extends Component {
     this.handleAtticChange = this.handleAtticChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleItemChange = this.handleItemChange.bind(this);
+    this.handleDeleteItem = this.handleDeleteItem.bind(this);
   }
   handleChange(e) {
     e.preventDefault();
@@ -66,7 +67,11 @@ class App extends Component {
   }
   handleButtonSubmit(e) {
     e.preventDefault();
-    this.props.dispatch(Show(this.props.homeOrg))
+    this.props.dispatch(Show(this.props.homeOrg));
+  }
+  handleDeleteItem(indexOfItemToDelete) {
+    console.log(indexOfItemToDelete);
+    this.props.dispatch(Delete(indexOfItemToDelete));
   }
   render() {
     const homeOrg = this.props.homeOrg;
@@ -89,12 +94,12 @@ class App extends Component {
         <Place visibility={homeOrg.placeVisibility} onChange={this.handleInputChange} />
         <Item visibility={homeOrg.itemVisibility} onChange={this.handleItemChange}
           onClick={(e) => this.handleButtonSubmit(e)} />
-        <Display />
+        <Display onClick={() => this.handleDeleteItem} />
       </div>
     );
   }
 }
 const mapStateToProps = state => ({
-    homeOrg: state.homeOrgReducer
+  homeOrg: state.homeOrgReducer
 });
 export default connect(mapStateToProps)(App);

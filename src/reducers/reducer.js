@@ -1,4 +1,4 @@
-import {SHOW} from '../actions/actions';
+import {SHOW, DELETE} from '../actions/actions';
 
 const initialState = {
     floor_type_state: '',
@@ -64,9 +64,6 @@ export const homeOrgReducer = (state = initialState, action) => {
             item: action.payload
         })
     }
-    // else if (action.type === "SHOW") {
-    //     return state;
-    // }
 
 
     // reducer function conditions for room types
@@ -152,6 +149,13 @@ export const homeOrgArrayReducer = (state = [], action) => {
     switch (action.type) {
         case SHOW:
             return [...state, action.payload];
+        case DELETE:
+                // let toDelete=action.payload;
+                console.log("DELETE in action")
+                // return state.filter(function(toDelete){
+                //     return index !== toDelete;
+                // })
+            return state.splice(action.payload, 1);      
         default: return state;
     }
 

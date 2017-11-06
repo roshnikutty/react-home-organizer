@@ -16,7 +16,4 @@ let BasementRoom = (props) => {
         );
     }
 }
-// const mapStateToProps = state => ({
-//     visibility: state.basementVisibility
-// });
 export default connect()(BasementRoom);
