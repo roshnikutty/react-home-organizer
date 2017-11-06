@@ -24,7 +24,7 @@ class App extends Component {
     this.handleAtticChange = this.handleAtticChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleItemChange = this.handleItemChange.bind(this);
-    this.handleDeleteItem = this.handleDeleteItem.bind(this);
+    // this.handleDeleteItem = this.handleDeleteItem.bind(this);
   }
   handleChange(e) {
     e.preventDefault();
@@ -69,7 +69,8 @@ class App extends Component {
     e.preventDefault();
     this.props.dispatch(Show(this.props.homeOrg));
   }
-  handleDeleteItem(indexOfItemToDelete) {
+  handleDeleteItem(e, indexOfItemToDelete) {
+    e.preventDefault();
     console.log(indexOfItemToDelete);
     this.props.dispatch(Delete(indexOfItemToDelete));
   }
@@ -94,7 +95,7 @@ class App extends Component {
         <Place visibility={homeOrg.placeVisibility} onChange={this.handleInputChange} />
         <Item visibility={homeOrg.itemVisibility} onChange={this.handleItemChange}
           onClick={(e) => this.handleButtonSubmit(e)} />
-        <Display onClick={() => this.handleDeleteItem} />
+        <Display onClick={(e, index) => this.handleDeleteItem(e, index)} />
       </div>
     );
   }
