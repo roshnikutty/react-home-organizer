@@ -1,4 +1,4 @@
-import {SHOW, DELETE} from '../actions/actions';
+import { SHOW, DELETE } from '../actions/actions';
 
 const initialState = {
     floor_type_state: '',
@@ -150,12 +150,9 @@ export const homeOrgArrayReducer = (state = [], action) => {
         case SHOW:
             return [...state, action.payload];
         case DELETE:
-                // let toDelete=action.payload;
-                console.log("DELETE in action")
-                // return state.filter(function(toDelete){
-                //     return index !== toDelete;
-                // })
-            return state.splice(action.payload, 1);      
+            let index = action.payload;
+            state = [].concat(state.slice(0, index), state.slice(index + 1));
+            return state;
         default: return state;
     }
 

@@ -3,7 +3,7 @@
 Create a tracker that lets you organize and document where things are kept in the house:
 
 1. It should let you add item, place to a selected floor and room. (working)
-2. It should let you delete an item. (* in works)
+2. It should let you delete an item. (working)
 3. It should let you search for an item. (next up feature to add)
 
 

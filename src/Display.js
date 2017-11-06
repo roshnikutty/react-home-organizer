@@ -18,7 +18,7 @@ let Display = (props) => {
                     <strong>Room </strong> {item_data.room_type_state} <br />
                     <strong>Place </strong> {item_data.place} <br />
                     <strong>Item </strong> {item_data.item} <br />
-                    <button onClick={props.onClick(index)}> Delete </button>
+                    <button onClick={(e)=>props.onClick(e, index)}> Delete </button>
                 </div>
             </li>)
         });
