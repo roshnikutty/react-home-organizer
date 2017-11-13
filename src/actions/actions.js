@@ -4,7 +4,6 @@ export const Floor = (floor_type) => ({
     payload: floor_type                  //values here: na, Basement, First, Second, Attic
 })
 
-
 export const BASEMENT = "BASEMENT";
 export const Basement = (room) => ({
     type: "BASEMENT",
@@ -30,13 +29,13 @@ export const Attic = (room) => ({
 });
 
 export const PLACE = "PLACE";
-export const Place_Action = (place_value) =>({
+export const Place_Action = (place_value) => ({
     type: PLACE,
     payload: place_value
 })
 
 export const ADD_ITEM = "ADD_ITEM";
-export const Add_Item_to_state = (stuff_to_add) =>({
+export const Add_Item_to_state = (stuff_to_add) => ({
     type: ADD_ITEM,
     payload: stuff_to_add
 })
@@ -48,7 +47,12 @@ export const Show = (homeOrg) => ({
 })
 
 export const DELETE = "DELETE";
-export const Delete =(indexOfItemToDelete) =>({
+export const Delete = (indexOfItemToDelete) => ({
     type: DELETE,
     payload: indexOfItemToDelete
+})
+
+export const SEARCH = "SEARCH";
+export const Search = () => ({
+    type: SEARCH
 })

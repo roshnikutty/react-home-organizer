@@ -6,7 +6,7 @@ let Place = (props) => {
         return null;
     } else {
         return (<div>
-            <input type="text" size="50" visibile={`${props.visibility}`} placeholder="Enter place" onChange={props.onChange}/>
+            <input type="text"  size="50" visibile={`${props.visibility}`} placeholder="Enter place" onChange={props.onChange}/>
         </div>
         )
     }

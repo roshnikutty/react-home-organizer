@@ -8,6 +8,8 @@ import AtticRoom from './AtticRoom';
 import Place from './Place';
 import Item from './Item';
 import Display from './Display';
+import Search from './Search';
+
 import {
   Floor, Basement, First_floor, Second_floor, Attic,
   Place_Action, Add_Item_to_state, Show, Delete
@@ -15,8 +17,8 @@ import {
 
 class App extends Component {
   constructor(props) {
-    // var inputValues = {};
     super(props);
+
     this.handleChange = this.handleChange.bind(this);
     this.handleBasementChange = this.handleBasementChange.bind(this);
     this.handleFirstFloorChange = this.handleFirstFloorChange.bind(this);
@@ -24,11 +26,9 @@ class App extends Component {
     this.handleAtticChange = this.handleAtticChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleItemChange = this.handleItemChange.bind(this);
-    // this.handleDeleteItem = this.handleDeleteItem.bind(this);
   }
   handleChange(e) {
     e.preventDefault();
-    // let floor_type = document.getElementById("floor").value;
     let floor_type = e.target.value;
     this.props.dispatch(Floor(floor_type));                 //dispatch from the store is passed as a prop
   }
@@ -68,6 +68,9 @@ class App extends Component {
   handleButtonSubmit(e) {
     e.preventDefault();
     this.props.dispatch(Show(this.props.homeOrg));
+    document.getElementsByTagName("input")[1].value = "";     //clear input element for place
+    document.getElementsByTagName("input")[2].value = "";     //clear input element for item
+    
   }
   handleDeleteItem(e, indexOfItemToDelete) {
     e.preventDefault();
@@ -76,25 +79,26 @@ class App extends Component {
   render() {
     const homeOrg = this.props.homeOrg;
     return [
-        <h1 key= "A" >Home Organizer</h1>,
+      <h1 key="A" >Home Organizer</h1>,
 
-        <select key= "B" id="floor" onChange={this.handleChange}>
-          <option value="na"> Select floor </option>
-          <option value="Basement"> Basement </option>
-          <option value="First"> First </option>
-          <option value="Second"> Second </option>
-          <option value="Attic"> Attic </option>
-        </select>,
+      <Search key="J" />,
+      <select key="B" id="floor" onChange={this.handleChange}>
+        <option value="na"> Select floor </option>
+        <option value="Basement"> Basement </option>
+        <option value="First"> First </option>
+        <option value="Second"> Second </option>
+        <option value="Attic"> Attic </option>
+      </select>,
 
-        <BasementRoom key= "C" visibility={homeOrg.basementVisibility} basementChange={this.handleBasementChange} />,
-        <FirstFloorRoom key= "D" visibility={homeOrg.firstFloorVisibility} firstFloorChange={this.handleFirstFloorChange} />,
-        <SecondFloorRoom key= "E" visibility={homeOrg.secondFloorVisibility} secondFloorChange={this.handleSecondFloorChange} />,
-        <AtticRoom key= "F" visibility={homeOrg.atticRoomVisibility} atticChange={this.handleAtticChange} />,
-        <Place key= "G" visibility={homeOrg.placeVisibility} onChange={this.handleInputChange} />,
-        <Item key= "H" visibility={homeOrg.itemVisibility} onChange={this.handleItemChange}
-          onClick={(e) => this.handleButtonSubmit(e)} />,
-        <Display key= "I" onClick={(e, index) => this.handleDeleteItem(e, index)} />
-      ];
+      <BasementRoom key="C" visibility={homeOrg.basementVisibility} basementChange={this.handleBasementChange} />,
+      <FirstFloorRoom key="D" visibility={homeOrg.firstFloorVisibility} firstFloorChange={this.handleFirstFloorChange} />,
+      <SecondFloorRoom key="E" visibility={homeOrg.secondFloorVisibility} secondFloorChange={this.handleSecondFloorChange} />,
+      <AtticRoom key="F" visibility={homeOrg.atticRoomVisibility} atticChange={this.handleAtticChange} />,
+      <Place key="G" visibility={homeOrg.placeVisibility} onChange={this.handleInputChange} id="place" />,
+      <Item key="H" visibility={homeOrg.itemVisibility} onChange={this.handleItemChange} id="item"
+        onClick={(e) => this.handleButtonSubmit(e)} />,
+      <Display key="I" onClick={(e, index) => this.handleDeleteItem(e, index)} />
+    ];
   }
 }
 const mapStateToProps = state => ({
