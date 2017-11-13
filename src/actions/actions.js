@@ -53,6 +53,7 @@ export const Delete = (indexOfItemToDelete) => ({
 })
 
 export const SEARCH = "SEARCH";
-export const Search = () => ({
-    type: SEARCH
+export const Search_Action = (search_term) => ({
+    type: SEARCH,
+    payload: search_term
 })

@@ -1,4 +1,4 @@
-import { SHOW, DELETE } from '../actions/actions';
+import { SHOW, DELETE, SEARCH } from '../actions/actions';
 
 const initialState = {
     floor_type_state: '',
@@ -10,7 +10,8 @@ const initialState = {
     secondFloorVisibility: false,
     atticRoomVisibility: false,
     placeVisibility: false,
-    itemVisibility: false
+    itemVisibility: false,
+    // filteredArray:[]
 };
 
 
@@ -153,6 +154,17 @@ export const homeOrgArrayReducer = (state = [], action) => {
             let index = action.payload;
             state = [].concat(state.slice(0, index), state.slice(index + 1));
             return state;
+        case SEARCH:
+            console.log(state);
+            console.log(action.payload)
+            let filteredArray = state.filter(function (itemDetail) {
+                return (itemDetail.floor_type_state ||
+                    itemDetail.room_type_state ||
+                    itemDetail.place ||
+                    itemDetail.item) === action.payload
+            })
+            return [].concat(state, filteredArray);
+
         default: return state;
     }
 

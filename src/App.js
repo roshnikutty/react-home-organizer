@@ -12,7 +12,7 @@ import Search from './Search';
 
 import {
   Floor, Basement, First_floor, Second_floor, Attic,
-  Place_Action, Add_Item_to_state, Show, Delete
+  Place_Action, Add_Item_to_state, Show, Delete, Search_Action
 } from './actions/actions';
 
 class App extends Component {
@@ -26,6 +26,7 @@ class App extends Component {
     this.handleAtticChange = this.handleAtticChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleItemChange = this.handleItemChange.bind(this);
+    this.handleSearchItemChange = this.handleSearchItemChange.bind(this);
   }
   handleChange(e) {
     e.preventDefault();
@@ -70,18 +71,23 @@ class App extends Component {
     this.props.dispatch(Show(this.props.homeOrg));
     document.getElementsByTagName("input")[1].value = "";     //clear input element for place
     document.getElementsByTagName("input")[2].value = "";     //clear input element for item
-    
+
   }
   handleDeleteItem(e, indexOfItemToDelete) {
     e.preventDefault();
     this.props.dispatch(Delete(indexOfItemToDelete));
+  }
+  handleSearchItemChange(e) {
+    e.preventDefault();
+    let searchItem = e.target.value;
+    this.props.dispatch(Search_Action(searchItem));
   }
   render() {
     const homeOrg = this.props.homeOrg;
     return [
       <h1 key="A" >Home Organizer</h1>,
 
-      <Search key="J" />,
+      <Search key="J" onChange={this.handleSearchItemChange} />,
       <select key="B" id="floor" onChange={this.handleChange}>
         <option value="na"> Select floor </option>
         <option value="Basement"> Basement </option>

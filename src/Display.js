@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 let Display = (props) => {
-    let output = props.output;
-
+    let output = Object.keys(props.output).map(key => props.output[key])
+console.log({output});
     if (output.length === 0) {
         return (
             <div>
